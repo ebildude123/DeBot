@@ -16,14 +16,14 @@
  * DO NOT CHANGE THIS!
  * @var String The string of the bot
  */
-define( 'VERSION', '1.5.1' ); // Current Framework version
+define( 'VERSION', '666.1.5.1' ); // Current Framework version
 
 /**
  * Defines the string version of the bot. Please don't change this.
  * DO NOT CHANGE THIS!
  * @var String The string of the bot
  */
-define( 'VERSION_STR', 'DeBot Framework v' . VERSION ); // A string version of the version.
+define( 'VERSION_STR', 'Framework v' . VERSION ); // A string version of the version.
 
 /**
  * A shortcut of the ACTION command. Just to keep things simple.

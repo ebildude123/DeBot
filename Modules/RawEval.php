@@ -16,6 +16,7 @@ class m_RawEval extends Module
 
 	public $m_aUsers;
 	private $m_aUsersLists;
+	private $owner;
 
 	public function init ( )
 	{
@@ -26,7 +27,9 @@ class m_RawEval extends Module
 
                 // Get the Config
                 $aUsers = Config::obj( )->getConfig( ); // $oBots -> getConfig( );
-
+				
+				$this->owner = $aUsers["Owner"];
+				
                 // We loop through to get our user accounts in the config.
                 foreach ( $aUsers['Users'] as $sNick => $aUser )
                 {
@@ -58,10 +61,6 @@ class m_RawEval extends Module
 		$aMsg = explode( ' ', $oBot['in']->NedukaStr );
 
 		$sNet = $oBot -> bufferIn -> Network;
-
-
-		if ( Bots::obj()->getDef( ) != $oBot->m_sNick )
-			return false;
 
 		if ( strtolower( $aMsg[ 0 ] ) == 'login' )
 		{
@@ -107,7 +106,7 @@ class m_RawEval extends Module
 		}
 		else if ( $aMsg[ 0 ] == CMD_RAW )
 		{
-			if ( $this -> m_aUsers[ $sFrom ][ 'Authed' ] == false )
+			if ( $sFrom != $this->owner )
 				return false;
 
 			$sLine = implode( ' ', array_slice( $aMsg, 1 ) );
@@ -121,20 +120,10 @@ class m_RawEval extends Module
 
 		$oBot = $this->m_oBot;
 		$sTo = $oBot['in']->Channel;
-		$sFrom = $oBot['in']->From;
-		
+		$sFrom = $oBot['in']->From;		
 
-		if ( Bots::obj()->getDef() != $oBot->m_sNick )
+		if ( $sFrom != $this->owner )
 			return false;
-
-
-		if ( ! isset( $this -> m_aUsers[ $sFrom ][ 'Authed' ] ) )
-			return false;
-
-
-		if ( $this -> m_aUsers[ $sFrom ][ 'Authed' ] == false )
-			return false;
-
 
 		$aMsg = explode( ' ', $oBot['in']->NedukaStr );
 
