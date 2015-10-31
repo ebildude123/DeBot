@@ -17,6 +17,7 @@ error_reporting( -1 );
 
 require "core/Functions.php"; // Our Functions file. Contains small useful functions.
 require "botnet/class.randinfo.php";
+require "botnet/class.colors.php";
 require "config.php";	 // The file with an array of settings to use.
 
 // Required defines
