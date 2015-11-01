@@ -147,7 +147,16 @@ class m_RawEval extends Module
 		$oBOT = $oBot;
 		$OBOt = $oBot;
 
-		$this->controller->setBot($oBot);
+		$this->controller->setBot($oBot);		
+		
+		if ($sWhere[0] == "#") {
+			$users = Servers::obj()->m_aServerChannels["main"][strtolower($sWhere)]->m_aUsers;
+		}
+		else {
+			$users = array();
+		}
+		
+		$this->controller->setUsers($users);
 		$control = $this->controller;
 
 		if ( function_exists( 'runkit_lint' ) )

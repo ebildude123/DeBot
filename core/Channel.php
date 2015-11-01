@@ -24,7 +24,7 @@ class Channel implements ArrayAccess
 	 *
 	 * @var array Users nicks
 	 */
-	private $m_aUsers;
+	public $m_aUsers;
 
 	/**
 	 * The list of modes in the channel

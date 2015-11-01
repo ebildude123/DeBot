@@ -29,7 +29,7 @@ class Servers extends Singleton implements ArrayAccess
 	 * Stores the channels per network.
 	 * @var array[ network ]Channel[] An array holding a channel per network key
 	 */
-	private $m_aServerChannels = array( );
+	public $m_aServerChannels = array( );
 
 	/**
 	 * Load function parses config for the servers and stores them for future

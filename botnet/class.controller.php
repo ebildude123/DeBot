@@ -2,6 +2,7 @@
 class BotController {
 	private $bot;
 	private $info;
+	private $users;
 	
 	public function __construct() {
 		$this->info = new RandomInfo(__DIR__ . "/names.txt");
@@ -19,6 +20,14 @@ class BotController {
 		for ($i = 0; $i < $times; $i++) {
 			$this->bot->raw("NICK " . $this->info->nick());
 		}
+	}
+	
+	public function setUsers($users) {
+		$this->users = array_keys($users);
+	}
+	
+	public function usersToString() {
+		return implode(" ", $this->users);
 	}
 }
 ?>
