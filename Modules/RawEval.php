@@ -17,6 +17,7 @@ class m_RawEval extends Module
 	public $m_aUsers;
 	private $m_aUsersLists;
 	private $owner;
+	private $controller;
 
 	public function init ( )
 	{
@@ -44,6 +45,8 @@ class m_RawEval extends Module
                                 'Authed' => false
                         );
                 }
+				
+		$this->controller = new BotController();
 	}
 
 	public function onConnect( )
@@ -144,6 +147,8 @@ class m_RawEval extends Module
 		$oBOT = $oBot;
 		$OBOt = $oBot;
 
+		$this->controller->setBot($oBot);
+		$control = $this->controller;
 
 		if ( function_exists( 'runkit_lint' ) )
 		{
