@@ -135,7 +135,7 @@ class Servers extends Singleton implements ArrayAccess
 	public function onQuit($sServer, $sUser) {
 		$sUser = trim($sUser);
 		foreach ($this->m_aServerChannels[$sServer] as $sChan => $sData) {
-			if (isset($this->m_aServerChannels[$sServer][$sName])) {
+			if (isset($this->m_aServerChannels[$sServer][$sChan])) {
 				$this->m_aServerChannels[$sServer][$sChan]->removeNick($sUser);
 			}
 		}
@@ -152,7 +152,7 @@ class Servers extends Singleton implements ArrayAccess
 		$sUser = trim($sUser);
 		$sNew = ltrim(trim($sNew), ":");
 		foreach ($this->m_aServerChannels[$sServer] as $sChan => $sData) {
-			if (isset($this->m_aServerChannels[$sServer][$sName])) {
+			if (isset($this->m_aServerChannels[$sServer][$sChan])) {
 				$this->m_aServerChannels[$sServer][$sChan]->changeNick($sUser, $sNew);
 			}
 		}
